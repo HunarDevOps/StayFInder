@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TAJ HOTEL — Member Sign In</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #f8fafc, #ffffff, #f1f5f9);
+      color: #1f2937;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+    }
+    .left {
+      position: relative;
+      background: url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1920&auto=format&fit=crop") no-repeat center/cover;
+      display: none;
+    }
+    .left::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+    }
+    .left-content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .brand {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+    h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+    .tabs {
+      display: flex;
+      background: #f1f5f9;
+      border-radius: 0.5rem;
+      margin: 1rem 0;
+      overflow: hidden;
+    }
+    .tabs button {
+      flex: 1;
+      padding: 0.5rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+    .tabs button.active {
+      background: white;
+      box-shadow: inset 0 -2px 0 #2563eb;
+      font-weight: bold;
+    }
+    label {
+      display: block;
+      margin: 0.5rem 0 0.25rem;
+      font-size: 0.9rem;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.5rem;
+    }
+    .flex {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      margin: 0.5rem 0 1rem;
+    }
+    .btn {
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+    }
+    .btn-outline {
+      background: white;
+      border: 1px solid #d1d5db;
+    }
+    .text-center {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+    @media (min-width: 992px) {
+      .left { display: block; }
+    }
+  </style>
+  <script>
+    function switchTab(tab) {
+      document.getElementById("emailTab").classList.remove("active");
+      document.getElementById("phoneTab").classList.remove("active");
+      document.getElementById("emailForm").style.display = "none";
+      document.getElementById("phoneForm").style.display = "none";
+      if(tab === "email") {
+        document.getElementById("emailTab").classList.add("active");
+        document.getElementById("emailForm").style.display = "block";
+      } else {
+        document.getElementById("phoneTab").classList.add("active");
+        document.getElementById("phoneForm").style.display = "block";
+      }
+    }
+    window.onload = () => switchTab("email");
+  </script>
+</head>
+<body>
+  <div class="container">
+  
+    <div class="left">
+      <div class="left-content">
+        <div>
+          <p>WELCOME TO</p>
+          <div class="brand">TAJ HOTEL</div>
+          <p style="margin-top:1rem;max-width:300px;font-size:0.9rem;">
+            Discover timeless hospitality and member-only privileges. Earn points on every stay,
+            unlock exclusive rates, and access complimentary upgrades.
+          </p>
+        </div>
+        <ul style="font-size:0.85rem;line-height:1.6;">
+          <li>✔ Member rates & bonus nights</li>
+          <li>✔ Late checkout upon availability</li>
+          <li>✔ Dining & spa savings across properties</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="card">
+        <h2>Member Sign In</h2>
+        <p style="text-align:center;font-size:0.85rem;color:#6b7280;">Sign in to your <b>TAJ HOTEL</b> membership.</p>
+
+        <div class="tabs">
+          <button id="emailTab" onclick="switchTab('email')">Email</button>
+          <button id="phoneTab" onclick="switchTab('phone')">Phone</button>
+        </div>
+
+        <form id="emailForm">
+          <label for="email">Email address</label>
+          <input type="email" id="email" placeholder="you@example.com" required />
+
+          <label for="password1">Password</label>
+          <input type="password" id="password1" placeholder="Your password" required />
+
+          <div class="actions">
+            <label><input type="checkbox" checked /> Remember me</label>
+            <a href="#">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+
+        <form id="phoneForm" style="display:none;">
+          <label for="phone">Mobile number</label>
+          <div class="flex">
+            <select>
+              <option value="+91">+91</option>
+              <option value="+1">+1</option>
+              <option value="+44">+44</option>
+            </select>
+            <input type="tel" id="phone" placeholder="98765 43210" required />
+          </div>
+
+          <label for="password2">Password</label>
+          <input type="password" id="password2" placeholder="Your password" required />
+
+          <div class="actions">
+            <label><input type="checkbox" checked /> Remember me</label>
+            <a href="#">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+
+        <div class="text-center">Or</div>
+        <button class="btn btn-outline">Get OTP</button>
+
+        <div class="text-center">
+          New to TAJ HOTEL? <a href="#">Create an account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 TAJ HOTEL. All rights reserved. | <a href="#">Help</a> | <a href="#">Contact</a>
+  </footer>
+</body>
+</html>

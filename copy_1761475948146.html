@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taj Hotel</title>
+  <style>
+    .head {
+      display: flex;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .nameh {
+      font-size: xx-large;
+      font-weight: bold;
+      font-style: italic;
+      margin-right: 30px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    .buttons {
+      margin-left: auto;   /* <-- THIS pushes buttons all the way to the right */
+      display: flex;
+      gap: 15px;
+    }
+
+    .buttonh {
+      padding: 5px 15px;
+      height: 32px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      background: #f0f0f0;
+      cursor: pointer;
+    }
+
+    body {
+      margin: 0;
+      padding-top: 70px; /* prevent content hiding under fixed header */
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="head">
+    <div class="nameh">Taj Hotel</div>
+
+    <div class="menu">
+      <div>Home</div>
+      <div>Rooms</div>
+      <div>Facilities</div>
+      <div>Contact us</div>
+      <div>About</div>
+    </div>
+
+    <div class="buttons">
+      <button class="buttonh">Login</button>
+      <button class="buttonh">Register</button>
+    </div>
+  </div>
+</body>
+</html>
